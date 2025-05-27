@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #fffbe9;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#message {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #222;
+}
+
+#fighting {
+    position: relative;
+    transition: color 0.2s;
+}
+
+.fire-emoji {
+    position: absolute;
+    font-size: 1.5rem;
+    pointer-events: none;
+    animation: fire-pop 0.7s;
+}
+
+@keyframes fire-pop {
+    0% { opacity: 0; transform: scale(0.5) translateY(10px);}
+    50% { opacity: 1; transform: scale(1.2) translateY(-10px);}
+    100% { opacity: 0; transform: scale(1) translateY(-20px);}
+}
+
+#fire-btn {
+    font-size: 2.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+#fire-btn:active {
+    transform: scale(1.2);
+}
