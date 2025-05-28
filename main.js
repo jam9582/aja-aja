@@ -1,5 +1,7 @@
 const fireBtn = document.getElementById('fire-btn');
 const fighting = document.getElementById('fighting');
+const nameInput = document.getElementById('name-input');
+const nameSpan = document.getElementById('name');
 
 fireBtn.addEventListener('click', () => {
     // 파이팅 글자 주위에 불 이모티콘 여러 개 생성
@@ -15,4 +17,8 @@ fireBtn.addEventListener('click', () => {
         // 애니메이션 끝나면 삭제
         setTimeout(() => fire.remove(), 700);
     }
+});
+
+nameInput.addEventListener('input', function() {
+    nameSpan.textContent = nameInput.value || '권재은';
 });
