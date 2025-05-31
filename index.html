@@ -7,9 +7,14 @@
 </head>
 <body>
     <div class="container">
-        <input id="name-input" type="text" placeholder="이름을 입력하세요">
-        <span id="message"><span id="name">권재은</span> <span id="fighting">파이팅</span></span>
-        <button id="fire-btn">🔥</button>
+        <div id="input-overlay">
+            <input id="name-input" type="text" placeholder="이름을 입력하세요">
+            <button id="done-btn">완료</button>
+        </div>
+        <span id="message" style="display:none;">
+            <span id="name">권재은</span> <span id="fighting">파이팅</span>
+        </span>
+        <button id="fire-btn" style="display:none;">🔥</button>
     </div>
     <script src="main.js"></script>
 </body>
