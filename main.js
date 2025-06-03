@@ -25,31 +25,21 @@ fireBtn.addEventListener('click', () => {
         message.style.transform = 'translateX(0)';
     }, 1000);
 
-    // 불 이모지 효과를 message 오른쪽에 생성
-    const rect = message.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
+    // 불 이모지 효과를 message 오른쪽에 생성 (container 기준)
+    const msgRect = message.getBoundingClientRect();
+    const contRect = container.getBoundingClientRect();
+    const baseLeft = msgRect.right - contRect.left + 10; // message 오른쪽 기준
+    const baseTop = msgRect.top - contRect.top + msgRect.height / 2 - 15; // message 수직 중앙
 
     for (let i = 0; i < 7; i++) {
         const fire = document.createElement('span');
         fire.className = 'fire-emoji';
         fire.textContent = '🔥';
-        fire.style.position = 'absolute';
-        fire.style.left = (rect.right - containerRect.left + 20 + Math.random() * 40) + 'px';
-        fire.style.top = (rect.top - containerRect.top - 10 + Math.random() * 20) + 'px';
-        fire.style.fontSize = '2rem';
-        fire.style.pointerEvents = 'none';
-        fire.style.zIndex = 100;
-        fire.style.opacity = 1;
+        fire.style.left = (baseLeft + Math.random() * 30) + 'px';
+        fire.style.top = (baseTop + (Math.random() - 0.5) * 30) + 'px';
         container.appendChild(fire);
 
-        // 불 이모지 애니메이션(위로 올라가며 사라짐)
-        setTimeout(() => {
-            fire.style.transition = 'all 0.7s';
-            fire.style.transform = 'translateY(-40px) scale(1.3)';
-            fire.style.opacity = 0;
-        }, 10);
-
-        setTimeout(() => fire.remove(), 800);
+        setTimeout(() => fire.remove(), 700);
     }
 });
 
