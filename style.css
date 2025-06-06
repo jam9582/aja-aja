@@ -10,47 +10,45 @@ body {
 .container {
     position: relative;
     width: 400px;
-    margin: 0 auto;
-    text-align: center;
-    top: 30vh;
-    min-height: 200px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #message {
     display: inline-block;
     position: relative;
-    transition: transform 0.5s;
     font-size: 2rem;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
-#fighting {
-    position: relative;
-    transition: color 0.2s;
+#fire-btn {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 8px;
+    margin-top: 0;
+    vertical-align: middle;
+    display: inline;
 }
 
 .fire-emoji {
     position: absolute;
     font-size: 1.5rem;
     pointer-events: none;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
     animation: fire-pop 0.7s;
 }
 
 @keyframes fire-pop {
-    0% { opacity: 0; transform: scale(0.5) translateY(10px);}
-    50% { opacity: 1; transform: scale(1.2) translateY(-10px);}
-    100% { opacity: 0; transform: scale(1) translateY(-20px);}
-}
-
-#fire-btn {
-    font-size: 2.2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.1s;
-}
-#fire-btn:active {
-    transform: scale(1.2);
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5) translateY(10px);}
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2) translateY(-10px);}
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(1) translateY(-20px);}
 }
 
 #input-overlay {
@@ -62,7 +60,4 @@ body {
     align-items: center;
     background: rgba(255,255,255,0.9);
     z-index: 10;
-}
-#message, #fire-btn {
-    margin-top: 20px;
 }
